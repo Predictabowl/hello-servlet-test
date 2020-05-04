@@ -2,19 +2,21 @@ package com.example.helloservlet;
 
 import java.io.IOException;
 
-import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.example.helloservlet.services.HelloNameService;
-import com.example.helloservlet.services.HelloNameServiceImpl;
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
 
 
 /**
  * Servlet implementation class HelloWorldServlet
  */
+// Singleton is required by google Guice
+@Singleton
 public class HelloWorldServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -26,7 +28,6 @@ public class HelloWorldServlet extends HttpServlet {
 	 */
 	public HelloWorldServlet() {
 		super();
-//		helloNameService = new HelloNameServiceImpl();
 	}
 	
 	/**
@@ -35,7 +36,6 @@ public class HelloWorldServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
